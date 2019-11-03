@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'ACPolygonView_Example' do
+  pod 'ACPolygonView', :path => '../'
+
+  target 'ACPolygonView_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
