@@ -22,7 +22,7 @@ pod 'ACPolygonView'
 
 ## Author
 
-Andrei Ciobanu, andrei.ciobanu@dyve.com
+Andrei Ciobanu, ac.ciobanu@yahoo.com
 
 ## License
 

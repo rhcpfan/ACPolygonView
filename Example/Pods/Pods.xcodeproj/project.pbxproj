@@ -1,0 +1,801 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1E80469301BA7F48DF7F8CDE1DC5E459 /* ACPolygonView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 37119D13B9DF818D2E004B782C7A8751 /* ACPolygonView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2249F9121752856DDDEBC2B1B13B3E00 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		228FF3225AE28F33E49249291884870C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		4939F0BEDC2342F0E1A82654FBD45789 /* Pods-ACPolygonView_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 353C46767ADF29813BCE8D121FC6053C /* Pods-ACPolygonView_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6B6F1D49236F87E1001FDF74 /* PolygonLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6F1D43236F87E1001FDF74 /* PolygonLayer.swift */; };
+		6B6F1D4A236F87E1001FDF74 /* PolygonLayerConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6F1D44236F87E1001FDF74 /* PolygonLayerConfiguration.swift */; };
+		6B6F1D4B236F87E1001FDF74 /* MagnifierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6F1D45236F87E1001FDF74 /* MagnifierView.swift */; };
+		6B6F1D4C236F87E1001FDF74 /* PolygonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6F1D46236F87E1001FDF74 /* PolygonView.swift */; };
+		6B6F1D4D236F87E1001FDF74 /* ControlPointLayerConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6F1D47236F87E1001FDF74 /* ControlPointLayerConfiguration.swift */; };
+		6B6F1D4E236F87E1001FDF74 /* ControlPointLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6F1D48236F87E1001FDF74 /* ControlPointLayer.swift */; };
+		6B6F1D50236F8882001FDF74 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B6F1D4F236F8882001FDF74 /* QuartzCore.framework */; };
+		74A5BDC3D7B3392A6A663545E20D8BAD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		7853218C9AA48D144CA6E43E1C82E69D /* Pods-ACPolygonView_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 396592319DA462AFADF520B267004019 /* Pods-ACPolygonView_Example-dummy.m */; };
+		7D66BAB2EF8FD48C8B2EE56DF85EB92A /* ACPolygonView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B6CD9526DFF12B6ADD581F5C1330C8 /* ACPolygonView-dummy.m */; };
+		9055C9CD4B70F41E5A0702F1A7124D4F /* Pods-ACPolygonView_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 68866B529DA08BB39CADD2EACC545241 /* Pods-ACPolygonView_Tests-dummy.m */; };
+		DA8D22B072CF0878924659730789EB4F /* Pods-ACPolygonView_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B54BF9C1D9035A02D42DA328B699E904 /* Pods-ACPolygonView_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D741F13AF773A330F157767D26947579 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 543E90544B1331B61722FBC1EB16F143;
+			remoteInfo = ACPolygonView;
+		};
+		E950B7BCA47AC6F58A9CA1B8F511F772 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3F179F6B2AD2CA801770E4BE10C424D0;
+			remoteInfo = "Pods-ACPolygonView_Example";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		031D9D26D49B20FF31E15321D2454EFE /* Pods-ACPolygonView_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ACPolygonView_Example-frameworks.sh"; sourceTree = "<group>"; };
+		0BFBE3269E8011F1C03C23E3F36B1CF2 /* ACPolygonView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ACPolygonView.modulemap; sourceTree = "<group>"; };
+		1BBB9807C37C43D9391DE0F074979325 /* Pods_ACPolygonView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ACPolygonView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		3374ABD90FDECC948F8ED58FF83B73E5 /* ACPolygonView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ACPolygonView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		353C46767ADF29813BCE8D121FC6053C /* Pods-ACPolygonView_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ACPolygonView_Tests-umbrella.h"; sourceTree = "<group>"; };
+		37119D13B9DF818D2E004B782C7A8751 /* ACPolygonView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ACPolygonView-umbrella.h"; sourceTree = "<group>"; };
+		396592319DA462AFADF520B267004019 /* Pods-ACPolygonView_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ACPolygonView_Example-dummy.m"; sourceTree = "<group>"; };
+		39B6CD9526DFF12B6ADD581F5C1330C8 /* ACPolygonView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ACPolygonView-dummy.m"; sourceTree = "<group>"; };
+		45A077B80C414D31540DB4EFA7BBD644 /* Pods-ACPolygonView_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ACPolygonView_Tests.modulemap"; sourceTree = "<group>"; };
+		46DD760F018A9E9081EB9530FA8448D5 /* ACPolygonView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ACPolygonView-Info.plist"; sourceTree = "<group>"; };
+		4993218A072FB4CBC499C82AC7CAEEAE /* Pods-ACPolygonView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ACPolygonView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		4B7B8B3B6F15F671E23F49FE19925B13 /* ACPolygonView.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = ACPolygonView.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		68866B529DA08BB39CADD2EACC545241 /* Pods-ACPolygonView_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ACPolygonView_Tests-dummy.m"; sourceTree = "<group>"; };
+		6B58D447B0718473DE6B3ABD1255E79A /* ACPolygonView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ACPolygonView-prefix.pch"; sourceTree = "<group>"; };
+		6B6F1D43236F87E1001FDF74 /* PolygonLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PolygonLayer.swift; path = ACPolygonView/Classes/PolygonLayer.swift; sourceTree = "<group>"; };
+		6B6F1D44236F87E1001FDF74 /* PolygonLayerConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PolygonLayerConfiguration.swift; path = ACPolygonView/Classes/PolygonLayerConfiguration.swift; sourceTree = "<group>"; };
+		6B6F1D45236F87E1001FDF74 /* MagnifierView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MagnifierView.swift; path = ACPolygonView/Classes/MagnifierView.swift; sourceTree = "<group>"; };
+		6B6F1D46236F87E1001FDF74 /* PolygonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PolygonView.swift; path = ACPolygonView/Classes/PolygonView.swift; sourceTree = "<group>"; };
+		6B6F1D47236F87E1001FDF74 /* ControlPointLayerConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ControlPointLayerConfiguration.swift; path = ACPolygonView/Classes/ControlPointLayerConfiguration.swift; sourceTree = "<group>"; };
+		6B6F1D48236F87E1001FDF74 /* ControlPointLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ControlPointLayer.swift; path = ACPolygonView/Classes/ControlPointLayer.swift; sourceTree = "<group>"; };
+		6B6F1D4F236F8882001FDF74 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		84DC7BE025EDD3060976345DCC8FCB44 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		88DDE12D6DA5F5D0EA838E14B3944769 /* Pods-ACPolygonView_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ACPolygonView_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9F5BF89E8E8B233A25877B68E2B5F895 /* Pods-ACPolygonView_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ACPolygonView_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		A8E18FF2CB28389A5847E50F1D93612B /* Pods-ACPolygonView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ACPolygonView_Example.release.xcconfig"; sourceTree = "<group>"; };
+		AA94E58228049D8152D75CA36A56600F /* Pods-ACPolygonView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ACPolygonView_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		B4AB9526F1D0B07E002143253D2B6EFD /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		B54BF9C1D9035A02D42DA328B699E904 /* Pods-ACPolygonView_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ACPolygonView_Example-umbrella.h"; sourceTree = "<group>"; };
+		B8A41DFA7FEAE6393582AB8C1F0AD6A9 /* ACPolygonView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ACPolygonView.xcconfig; sourceTree = "<group>"; };
+		E034A6AD6ACB534225E51B2F94A056FF /* Pods-ACPolygonView_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ACPolygonView_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		E39A830D617FE42D272DE6608DBFF187 /* Pods-ACPolygonView_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ACPolygonView_Tests-Info.plist"; sourceTree = "<group>"; };
+		E526B455C8CA0055270D934612D27B83 /* Pods-ACPolygonView_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ACPolygonView_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		E58E8FC6E3F52764E08C804086EE54B8 /* Pods-ACPolygonView_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ACPolygonView_Example.modulemap"; sourceTree = "<group>"; };
+		F620B1A8C776D8E31D53F459691BF276 /* Pods_ACPolygonView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ACPolygonView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F97EE7E8749A2DEE58C5477F9A3629D2 /* Pods-ACPolygonView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ACPolygonView_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		FB21A88001C81576B4C23A8D475931E6 /* Pods-ACPolygonView_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ACPolygonView_Example-Info.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		38C7B5E85B818E6C37A6D3E495C3C940 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B6F1D50236F8882001FDF74 /* QuartzCore.framework in Frameworks */,
+				74A5BDC3D7B3392A6A663545E20D8BAD /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4EA04A97BC0A0AAF6E0FE76B366BFE38 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				228FF3225AE28F33E49249291884870C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94FB8997DC9A88AA9812A672FA3FBC3B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2249F9121752856DDDEBC2B1B13B3E00 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		02AE6A1525DB302E44145EA13946F2E6 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0C869F5CD089F916DDFA23A114481570 /* ACPolygonView */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		0C869F5CD089F916DDFA23A114481570 /* ACPolygonView */ = {
+			isa = PBXGroup;
+			children = (
+				3FC471E958D84C0326829F0F0115EE7D /* Pod */,
+				925FE8935A843C9E70BF11A344F00144 /* Support Files */,
+				6B6F1D48236F87E1001FDF74 /* ControlPointLayer.swift */,
+				6B6F1D47236F87E1001FDF74 /* ControlPointLayerConfiguration.swift */,
+				6B6F1D45236F87E1001FDF74 /* MagnifierView.swift */,
+				6B6F1D43236F87E1001FDF74 /* PolygonLayer.swift */,
+				6B6F1D44236F87E1001FDF74 /* PolygonLayerConfiguration.swift */,
+				6B6F1D46236F87E1001FDF74 /* PolygonView.swift */,
+			);
+			name = ACPolygonView;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		14AC8B65784EFE90ABF5B92426AD8D94 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7255921C36A9C5EC959575A83DBF4B89 /* Pods-ACPolygonView_Example */,
+				C46C59094C6AAD33E623F138ABCEB09B /* Pods-ACPolygonView_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		3FC471E958D84C0326829F0F0115EE7D /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				4B7B8B3B6F15F671E23F49FE19925B13 /* ACPolygonView.podspec */,
+				B4AB9526F1D0B07E002143253D2B6EFD /* LICENSE */,
+				84DC7BE025EDD3060976345DCC8FCB44 /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		7255921C36A9C5EC959575A83DBF4B89 /* Pods-ACPolygonView_Example */ = {
+			isa = PBXGroup;
+			children = (
+				E58E8FC6E3F52764E08C804086EE54B8 /* Pods-ACPolygonView_Example.modulemap */,
+				88DDE12D6DA5F5D0EA838E14B3944769 /* Pods-ACPolygonView_Example-acknowledgements.markdown */,
+				E526B455C8CA0055270D934612D27B83 /* Pods-ACPolygonView_Example-acknowledgements.plist */,
+				396592319DA462AFADF520B267004019 /* Pods-ACPolygonView_Example-dummy.m */,
+				031D9D26D49B20FF31E15321D2454EFE /* Pods-ACPolygonView_Example-frameworks.sh */,
+				FB21A88001C81576B4C23A8D475931E6 /* Pods-ACPolygonView_Example-Info.plist */,
+				B54BF9C1D9035A02D42DA328B699E904 /* Pods-ACPolygonView_Example-umbrella.h */,
+				F97EE7E8749A2DEE58C5477F9A3629D2 /* Pods-ACPolygonView_Example.debug.xcconfig */,
+				A8E18FF2CB28389A5847E50F1D93612B /* Pods-ACPolygonView_Example.release.xcconfig */,
+			);
+			name = "Pods-ACPolygonView_Example";
+			path = "Target Support Files/Pods-ACPolygonView_Example";
+			sourceTree = "<group>";
+		};
+		925FE8935A843C9E70BF11A344F00144 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				0BFBE3269E8011F1C03C23E3F36B1CF2 /* ACPolygonView.modulemap */,
+				B8A41DFA7FEAE6393582AB8C1F0AD6A9 /* ACPolygonView.xcconfig */,
+				39B6CD9526DFF12B6ADD581F5C1330C8 /* ACPolygonView-dummy.m */,
+				46DD760F018A9E9081EB9530FA8448D5 /* ACPolygonView-Info.plist */,
+				6B58D447B0718473DE6B3ABD1255E79A /* ACPolygonView-prefix.pch */,
+				37119D13B9DF818D2E004B782C7A8751 /* ACPolygonView-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/ACPolygonView";
+			sourceTree = "<group>";
+		};
+		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		C46C59094C6AAD33E623F138ABCEB09B /* Pods-ACPolygonView_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				45A077B80C414D31540DB4EFA7BBD644 /* Pods-ACPolygonView_Tests.modulemap */,
+				9F5BF89E8E8B233A25877B68E2B5F895 /* Pods-ACPolygonView_Tests-acknowledgements.markdown */,
+				E034A6AD6ACB534225E51B2F94A056FF /* Pods-ACPolygonView_Tests-acknowledgements.plist */,
+				68866B529DA08BB39CADD2EACC545241 /* Pods-ACPolygonView_Tests-dummy.m */,
+				E39A830D617FE42D272DE6608DBFF187 /* Pods-ACPolygonView_Tests-Info.plist */,
+				353C46767ADF29813BCE8D121FC6053C /* Pods-ACPolygonView_Tests-umbrella.h */,
+				4993218A072FB4CBC499C82AC7CAEEAE /* Pods-ACPolygonView_Tests.debug.xcconfig */,
+				AA94E58228049D8152D75CA36A56600F /* Pods-ACPolygonView_Tests.release.xcconfig */,
+			);
+			name = "Pods-ACPolygonView_Tests";
+			path = "Target Support Files/Pods-ACPolygonView_Tests";
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				02AE6A1525DB302E44145EA13946F2E6 /* Development Pods */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				E3370DBAF9371260BC19656498077780 /* Products */,
+				14AC8B65784EFE90ABF5B92426AD8D94 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6B6F1D4F236F8882001FDF74 /* QuartzCore.framework */,
+				C0834CEBB1379A84116EF29F93051C60 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E3370DBAF9371260BC19656498077780 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3374ABD90FDECC948F8ED58FF83B73E5 /* ACPolygonView.framework */,
+				F620B1A8C776D8E31D53F459691BF276 /* Pods_ACPolygonView_Example.framework */,
+				1BBB9807C37C43D9391DE0F074979325 /* Pods_ACPolygonView_Tests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		11191F1C484EA32184EFC07D3FAB7AFB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4939F0BEDC2342F0E1A82654FBD45789 /* Pods-ACPolygonView_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C0D4BC178616E1378A219F9BDC6F02F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E80469301BA7F48DF7F8CDE1DC5E459 /* ACPolygonView-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF8E52CE05B45098B72CBEE88C9C3D59 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA8D22B072CF0878924659730789EB4F /* Pods-ACPolygonView_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		0D42249BF5CD4310ADA5F016AF5D51C2 /* Pods-ACPolygonView_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DBE660F6BCF11CB96BD0909981D87492 /* Build configuration list for PBXNativeTarget "Pods-ACPolygonView_Tests" */;
+			buildPhases = (
+				11191F1C484EA32184EFC07D3FAB7AFB /* Headers */,
+				9123ECED293A2E55D18126EC5A8B0431 /* Sources */,
+				4EA04A97BC0A0AAF6E0FE76B366BFE38 /* Frameworks */,
+				BA036D4D73C3CCC9646FFDA6EDBA2301 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6762C9F8CC742323D573EB1CC5073F7D /* PBXTargetDependency */,
+			);
+			name = "Pods-ACPolygonView_Tests";
+			productName = "Pods-ACPolygonView_Tests";
+			productReference = 1BBB9807C37C43D9391DE0F074979325 /* Pods_ACPolygonView_Tests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		3F179F6B2AD2CA801770E4BE10C424D0 /* Pods-ACPolygonView_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4418A8F3CBEFD48DC95103F15D012D1B /* Build configuration list for PBXNativeTarget "Pods-ACPolygonView_Example" */;
+			buildPhases = (
+				FF8E52CE05B45098B72CBEE88C9C3D59 /* Headers */,
+				D8B29D498E2BBCFABEB8EBD65CCB9BD4 /* Sources */,
+				94FB8997DC9A88AA9812A672FA3FBC3B /* Frameworks */,
+				795432277F34F51129969811EABE74CB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D52CD472223357C86EE0B545606719F0 /* PBXTargetDependency */,
+			);
+			name = "Pods-ACPolygonView_Example";
+			productName = "Pods-ACPolygonView_Example";
+			productReference = F620B1A8C776D8E31D53F459691BF276 /* Pods_ACPolygonView_Example.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		543E90544B1331B61722FBC1EB16F143 /* ACPolygonView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B3353E8FCD3791C4FF8CDC42EDC72589 /* Build configuration list for PBXNativeTarget "ACPolygonView" */;
+			buildPhases = (
+				9C0D4BC178616E1378A219F9BDC6F02F /* Headers */,
+				E96F9E01D3D254C4929121C28F8C7790 /* Sources */,
+				38C7B5E85B818E6C37A6D3E495C3C940 /* Frameworks */,
+				F4CC8F9EDEDFA5A700A5FF426DB4FF7F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ACPolygonView;
+			productName = ACPolygonView;
+			productReference = 3374ABD90FDECC948F8ED58FF83B73E5 /* ACPolygonView.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+				TargetAttributes = {
+					543E90544B1331B61722FBC1EB16F143 = {
+						LastSwiftMigration = 1120;
+					};
+				};
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = E3370DBAF9371260BC19656498077780 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				543E90544B1331B61722FBC1EB16F143 /* ACPolygonView */,
+				3F179F6B2AD2CA801770E4BE10C424D0 /* Pods-ACPolygonView_Example */,
+				0D42249BF5CD4310ADA5F016AF5D51C2 /* Pods-ACPolygonView_Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		795432277F34F51129969811EABE74CB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA036D4D73C3CCC9646FFDA6EDBA2301 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4CC8F9EDEDFA5A700A5FF426DB4FF7F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9123ECED293A2E55D18126EC5A8B0431 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9055C9CD4B70F41E5A0702F1A7124D4F /* Pods-ACPolygonView_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8B29D498E2BBCFABEB8EBD65CCB9BD4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7853218C9AA48D144CA6E43E1C82E69D /* Pods-ACPolygonView_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E96F9E01D3D254C4929121C28F8C7790 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B6F1D4D236F87E1001FDF74 /* ControlPointLayerConfiguration.swift in Sources */,
+				6B6F1D49236F87E1001FDF74 /* PolygonLayer.swift in Sources */,
+				6B6F1D4E236F87E1001FDF74 /* ControlPointLayer.swift in Sources */,
+				6B6F1D4C236F87E1001FDF74 /* PolygonView.swift in Sources */,
+				7D66BAB2EF8FD48C8B2EE56DF85EB92A /* ACPolygonView-dummy.m in Sources */,
+				6B6F1D4B236F87E1001FDF74 /* MagnifierView.swift in Sources */,
+				6B6F1D4A236F87E1001FDF74 /* PolygonLayerConfiguration.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6762C9F8CC742323D573EB1CC5073F7D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-ACPolygonView_Example";
+			target = 3F179F6B2AD2CA801770E4BE10C424D0 /* Pods-ACPolygonView_Example */;
+			targetProxy = E950B7BCA47AC6F58A9CA1B8F511F772 /* PBXContainerItemProxy */;
+		};
+		D52CD472223357C86EE0B545606719F0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ACPolygonView;
+			target = 543E90544B1331B61722FBC1EB16F143 /* ACPolygonView */;
+			targetProxy = D741F13AF773A330F157767D26947579 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		4D0F4A155E043D50961B1CB8506679DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8A41DFA7FEAE6393582AB8C1F0AD6A9 /* ACPolygonView.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/ACPolygonView/ACPolygonView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ACPolygonView/ACPolygonView-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ACPolygonView/ACPolygonView.modulemap";
+				PRODUCT_MODULE_NAME = ACPolygonView;
+				PRODUCT_NAME = ACPolygonView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4FD80FC1C5DCA5D4BDD2D5523C344F1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA94E58228049D8152D75CA36A56600F /* Pods-ACPolygonView_Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ACPolygonView_Tests/Pods-ACPolygonView_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ACPolygonView_Tests/Pods-ACPolygonView_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		6A367045F729D18A76BEE0CC43FCED08 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8E18FF2CB28389A5847E50F1D93612B /* Pods-ACPolygonView_Example.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ACPolygonView_Example/Pods-ACPolygonView_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ACPolygonView_Example/Pods-ACPolygonView_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		99458827C5C7253D76648DF5A4DC7946 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4993218A072FB4CBC499C82AC7CAEEAE /* Pods-ACPolygonView_Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ACPolygonView_Tests/Pods-ACPolygonView_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ACPolygonView_Tests/Pods-ACPolygonView_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A62D44C156B6D828AE08DF177EFB463E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8A41DFA7FEAE6393582AB8C1F0AD6A9 /* ACPolygonView.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/ACPolygonView/ACPolygonView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ACPolygonView/ACPolygonView-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ACPolygonView/ACPolygonView.modulemap";
+				PRODUCT_MODULE_NAME = ACPolygonView;
+				PRODUCT_NAME = ACPolygonView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B0087CB4594321EF41619F3181FE120E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		B8BCBD0110C2658BB5DAADB9B7D97B92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		EE6305B551C844D2093A336A3C144B78 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F97EE7E8749A2DEE58C5477F9A3629D2 /* Pods-ACPolygonView_Example.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ACPolygonView_Example/Pods-ACPolygonView_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ACPolygonView_Example/Pods-ACPolygonView_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4418A8F3CBEFD48DC95103F15D012D1B /* Build configuration list for PBXNativeTarget "Pods-ACPolygonView_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE6305B551C844D2093A336A3C144B78 /* Debug */,
+				6A367045F729D18A76BEE0CC43FCED08 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B8BCBD0110C2658BB5DAADB9B7D97B92 /* Debug */,
+				B0087CB4594321EF41619F3181FE120E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B3353E8FCD3791C4FF8CDC42EDC72589 /* Build configuration list for PBXNativeTarget "ACPolygonView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D0F4A155E043D50961B1CB8506679DA /* Debug */,
+				A62D44C156B6D828AE08DF177EFB463E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DBE660F6BCF11CB96BD0909981D87492 /* Build configuration list for PBXNativeTarget "Pods-ACPolygonView_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				99458827C5C7253D76648DF5A4DC7946 /* Debug */,
+				4FD80FC1C5DCA5D4BDD2D5523C344F1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

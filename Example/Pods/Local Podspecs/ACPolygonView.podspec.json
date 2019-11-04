@@ -1,0 +1,22 @@
+{
+  "name": "ACPolygonView",
+  "version": "0.1.0",
+  "summary": "A short description of ACPolygonView.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/Andrei Ciobanu/ACPolygonView",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Andrei Ciobanu": "andrei.ciobanu@dyve.com"
+  },
+  "source": {
+    "git": "https://github.com/Andrei Ciobanu/ACPolygonView.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "ACPolygonView/Classes/**/*"
+}

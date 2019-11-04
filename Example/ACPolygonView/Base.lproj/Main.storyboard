@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15508"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,18 +12,56 @@
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="ACPolygonView_Example" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
-                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="y3w-V0-pV9">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y3g-w1-A8K">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cube_image" translatesAutoresizingMaskIntoConstraints="NO" id="xrg-do-63T">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                                            </imageView>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TbI-Ef-Eo5" customClass="PolygonView" customModule="ACPolygonView">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="xrg-do-63T" secondAttribute="trailing" id="Pd5-RO-zAk"/>
+                                            <constraint firstItem="xrg-do-63T" firstAttribute="top" secondItem="y3g-w1-A8K" secondAttribute="top" id="TTO-2I-cqy"/>
+                                            <constraint firstAttribute="bottom" secondItem="xrg-do-63T" secondAttribute="bottom" id="VUi-xy-E8r"/>
+                                            <constraint firstItem="xrg-do-63T" firstAttribute="leading" secondItem="y3g-w1-A8K" secondAttribute="leading" id="e7u-WJ-a5t"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="BSk-Bc-fXx" firstAttribute="trailing" secondItem="y3w-V0-pV9" secondAttribute="trailing" id="7jO-pF-RBn"/>
+                            <constraint firstItem="y3w-V0-pV9" firstAttribute="top" secondItem="BSk-Bc-fXx" secondAttribute="top" id="B8G-t0-BGJ"/>
+                            <constraint firstItem="y3w-V0-pV9" firstAttribute="leading" secondItem="BSk-Bc-fXx" secondAttribute="leading" id="Ey1-BC-Xfg"/>
+                            <constraint firstItem="BSk-Bc-fXx" firstAttribute="bottom" secondItem="y3w-V0-pV9" secondAttribute="bottom" id="u8l-Wk-HCI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="BSk-Bc-fXx"/>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="xrg-do-63T" id="ugy-Sy-zxY"/>
+                        <outlet property="polygonView" destination="TbI-Ef-Eo5" id="e67-4t-HEr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-78" y="132"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cube_image" width="466" height="482"/>
+    </resources>
 </document>

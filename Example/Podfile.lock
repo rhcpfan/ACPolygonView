@@ -1,0 +1,16 @@
+PODS:
+  - ACPolygonView (0.1.0)
+
+DEPENDENCIES:
+  - ACPolygonView (from `../`)
+
+EXTERNAL SOURCES:
+  ACPolygonView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ACPolygonView: b33339b271bb9db2eac47c9640e408c1f9105154
+
+PODFILE CHECKSUM: f7763c1f4784fdad6d51ef71fff1b77cf277c4ef
+
+COCOAPODS: 1.8.1

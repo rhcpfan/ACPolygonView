@@ -1,0 +1,6 @@
+framework module Pods_ACPolygonView_Example {
+  umbrella header "Pods-ACPolygonView_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}
