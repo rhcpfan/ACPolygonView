@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 public class PolygonView: UIView {
 
@@ -34,47 +35,88 @@ public class PolygonView: UIView {
 
         let polygonLayer = PolygonLayer(initialPoints: initialPoints, polygonConfiguration: polygonConfiguration, pointsConfiguration: pointsConfiguration)
         polygonLayer.contentsScale = UIScreen.main.scale
-        polygonLayer.bounds = self.bounds
-        polygonLayer.position = CGPoint(x: self.bounds.midX, y: self.bounds.midY)
-        self.polygonLayers.append(polygonLayer)
+        polygonLayer.frame = self.layer.frame
         self.layer.addSublayer(polygonLayer)
+        self.polygonLayers.append(polygonLayer)
     }
 
-    public func updatePolygonLayersFrame(_ frame: CGRect) {
-        self.polygonLayers.forEach {
-            $0.frame = frame
-            $0.bounds = CGRect(origin: .zero, size: frame.size)
-            $0.position = CGPoint(x: $0.bounds.midX, y: $0.bounds.midY)
+    /// Returns the polyon corners for all the polygons contained inside.
+    /// - Returns: Array of arrays of `CGPoint` (one aray of corner points for each polygon).
+    public func getPolygonPoints() -> [[CGPoint]] {
+        return self.polygonLayers.map({ $0.points })
+    }
+
+    /// Updates the layer of a polygon to match the original image that has been rendered using `.scaleAspectFit` (in size and coordinates).
+    /// - Parameter polygonLayer: The layer to be modified.
+    public func updateFrameForPolygonLayers(toFitImageOfSize imageSize: CGSize) {
+        self.polygonLayers.forEach { (polygonLayer) in
+            // Set the layer frame size as the original image size
+            polygonLayer.frame = CGRect(origin: .zero, size: imageSize)
+            // Get the CGRect that represents the scaled image frame (image clipping rectangle)
+            let imageClippingRect = AVMakeRect(aspectRatio: imageSize, insideRect: self.bounds)
+            // Scale from original image size to the image clipping rectangle
+            let scaleX = imageClippingRect.width / imageSize.width
+            let scaleY = imageClippingRect.height / imageSize.height
+            let scaleTransform = CATransform3DMakeScale(scaleX, scaleY, 1)
+            polygonLayer.transform = scaleTransform
+            // Move the layer position to the image clipping rectangle origin
+            polygonLayer.frame.origin = CGPoint(x: imageClippingRect.minX, y: imageClippingRect.minY)
         }
     }
 
+    /// Initializes the magnifier view (round shape, displayed at the top-left corner of the image view frame)
+    private func initMagnifierView() {
+        magnifierView = MagnifierView(frame: CGRect(origin: .zero, size: CGSize(width: 100, height: 100)))
+        magnifierView.shape = .round
+        magnifierView.isHidden = true
+        magnifierView.translatesAutoresizingMaskIntoConstraints = false
+        magnifierView.layer.borderColor = UIColor.white.cgColor
+        magnifierView.layer.borderWidth = 2
+    }
+
+    /// Updates the magnifier's view that needs to be magnified.
     private func updateMagnifiedView() {
         if let magnifiedView = self.magnifiedView {
             if magnifierView == nil {
-                magnifierView = MagnifierView(frame: CGRect(origin: .zero, size: CGSize(width: 100, height: 100)))
-                magnifierView.shape = .round
-                magnifierView.isHidden = true
-                magnifierView.translatesAutoresizingMaskIntoConstraints = false
-                magnifierView.layer.borderColor = UIColor.white.cgColor
-                magnifierView.layer.borderWidth = 2
+                self.initMagnifierView()
                 self.addSubview(magnifierView)
             }
             magnifierView.magnifiedView = magnifiedView
         }
     }
 
+    /// Maps the given point to match the layer position and scale.
+    /// - Parameters:
+    ///   - point: The point to map.
+    ///   - layer: The layer to do the mapping for.
+    private func getPositionFor(point: CGPoint, inLayer layer: PolygonLayer) -> CGPoint {
+        let translatedPoint = CGPoint(x: point.x - layer.frame.minX, y: point.y - layer.frame.minY)
+        let layerTransform = layer.affineTransform()
+        let scaledPoint = CGPoint(x: translatedPoint.x / layerTransform.a, y: translatedPoint.y / layerTransform.d)
+
+        return scaledPoint
+    }
+
+    /// Returns the scale factors of the layer's affine transform.
+    /// - Parameter layer: The layer to get the scale factors from.
+    /// - Returns: A `(CGFloat, CGFloat)` tuple representing the `X` and `Y` scale factors.
+    private func getScaleFactorsFor(layer: PolygonLayer) -> (xScale: CGFloat, yScale: CGFloat) {
+        let layerTransform = layer.affineTransform()
+        return (xScale: layerTransform.a, yScale: layerTransform.d)
+    }
+
     // MARK: - Instance Methods [Touch Events] -
 
     override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard var point = touches.first?.location(in: self) else {
+        guard let point = touches.first?.location(in: self),
+            let polygonLayer = self.polygonLayers.first else {
             return
         }
 
-        let layerTransform = self.layer.affineTransform()
+        let scaledPoint = getPositionFor(point: point, inLayer: polygonLayer)
 
         for polygon in self.polygonLayers {
-            if let selectedPoint = polygon.sublayers?.first(where: { $0.hitTest(point) != nil }) as? ControlPointLayer {
-                point = CGPoint(x: (point.x * layerTransform.a) + self.frame.origin.x, y: (point.y * layerTransform.d) + self.frame.origin.y)
+            if let selectedPoint = polygon.sublayers?.first(where: { $0.hitTest(scaledPoint) != nil }) as? ControlPointLayer {
                 self.selectedControlPointLayer = selectedPoint
                 self.selectedControlPointLayer?.selected = true
                 self.selectedPolygonLayer = polygon
@@ -97,19 +139,22 @@ public class PolygonView: UIView {
     }
 
     override public func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard var point = touches.first?.location(in: self),
+        guard let point = touches.first?.location(in: self),
             let polygonLayer = self.selectedPolygonLayer,
             let pointLayer = self.selectedControlPointLayer else {
             return
         }
 
+        let scaledPoint = getPositionFor(point: point, inLayer: polygonLayer)
+        let scaleFactors = getScaleFactorsFor(layer: polygonLayer)
+
         CATransaction.begin()
         CATransaction.setValue(true, forKey: kCATransactionDisableActions)
-        if point.x >= polygonLayer.frame.minX &&
-            point.y >= polygonLayer.frame.minY &&
-            point.x <= polygonLayer.frame.maxX &&
-            point.y <= polygonLayer.frame.maxY {
-            pointLayer.position = point
+        if scaledPoint.x >= 0 &&
+            scaledPoint.y >= 0 &&
+            scaledPoint.x <= polygonLayer.frame.width / scaleFactors.xScale &&
+            scaledPoint.y <= polygonLayer.frame.height / scaleFactors.yScale {
+            pointLayer.position = scaledPoint
             polygonLayer.updatePath()
         }
         CATransaction.commit()
@@ -127,10 +172,7 @@ public class PolygonView: UIView {
             })
         }
 
-        let layerTransform = self.layer.affineTransform()
-        point = CGPoint(x: (point.x * layerTransform.a) + self.frame.origin.x, y: (point.y * layerTransform.d) + self.frame.origin.y)
         magnifierView.touchLocation = point
         self.magnifierView?.touchCenterView.center = point
-
     }
 }

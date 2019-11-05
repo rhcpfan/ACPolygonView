@@ -24,44 +24,20 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
 
         let firstPolyPoints = [
-            CGPoint(x: 25, y: 95),
-            CGPoint(x: 180, y: 15),
-            CGPoint(x: 340, y: 100),
-            CGPoint(x: 170, y: 200)
-        ]
-
-        let secondPolyPoints = [
-            CGPoint(x: 125, y: 95),
-            CGPoint(x: 80, y: 150),
-            CGPoint(x: 240, y: 100),
-            CGPoint(x: 270, y: 200)
+            CGPoint(x: 150, y: 150),
+            CGPoint(x: 450, y: 150),
+            CGPoint(x: 450, y: 450),
+            CGPoint(x: 150, y: 450)
         ]
 
         self.polygonView.magnifiedView = self.imageView
         self.addPolygon(points: firstPolyPoints)
-        self.addPolygon(points: secondPolyPoints)
-        self.updateLayerBounds()
-    }
-
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
-        coordinator.animate(alongsideTransition: nil, completion: { context in
-            self.updateLayerBounds()
-        })
+        if let imageSize = self.imageView.image?.size {
+            self.polygonView.updateFrameForPolygonLayers(toFitImageOfSize: imageSize)
+        }
     }
 
     // MARK: - Instance Methods -
-
-    func updateLayerBounds() {
-        if imageView.contentMode == .scaleAspectFit, let displayedImage = imageView.image {
-            let imageClippingRect = AVMakeRect(aspectRatio: displayedImage.size, insideRect: imageView.bounds)
-            let xScale = imageClippingRect.width / imageView.bounds.width
-            let yScale = imageClippingRect.height / imageView.bounds.height
-
-            let scaleTransform = CGAffineTransform(scaleX: xScale, y: yScale)
-            polygonView.layer.setAffineTransform(scaleTransform)
-        }
-    }
 
     /// Adds a polygon inside `polygonView`
     /// - Parameter points: The initial points of the polygon.
