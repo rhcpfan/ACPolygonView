@@ -25,18 +25,21 @@
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cube_image" translatesAutoresizingMaskIntoConstraints="NO" id="xrg-do-63T">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                                             </imageView>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TbI-Ef-Eo5" customClass="PolygonView" customModule="ACPolygonView">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TbI-Ef-Eo5" customClass="PolygonView" customModule="ACPolygonView">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
+                                            <constraint firstItem="TbI-Ef-Eo5" firstAttribute="leading" secondItem="xrg-do-63T" secondAttribute="leading" id="AtM-84-j7Q"/>
+                                            <constraint firstItem="TbI-Ef-Eo5" firstAttribute="bottom" secondItem="xrg-do-63T" secondAttribute="bottom" id="EMh-2M-nVk"/>
                                             <constraint firstAttribute="trailing" secondItem="xrg-do-63T" secondAttribute="trailing" id="Pd5-RO-zAk"/>
                                             <constraint firstItem="xrg-do-63T" firstAttribute="top" secondItem="y3g-w1-A8K" secondAttribute="top" id="TTO-2I-cqy"/>
                                             <constraint firstAttribute="bottom" secondItem="xrg-do-63T" secondAttribute="bottom" id="VUi-xy-E8r"/>
                                             <constraint firstItem="xrg-do-63T" firstAttribute="leading" secondItem="y3g-w1-A8K" secondAttribute="leading" id="e7u-WJ-a5t"/>
+                                            <constraint firstItem="TbI-Ef-Eo5" firstAttribute="top" secondItem="xrg-do-63T" secondAttribute="top" id="hUK-z0-hdF"/>
+                                            <constraint firstItem="TbI-Ef-Eo5" firstAttribute="trailing" secondItem="xrg-do-63T" secondAttribute="trailing" id="pYY-rI-RMu"/>
                                         </constraints>
                                     </view>
                                 </subviews>

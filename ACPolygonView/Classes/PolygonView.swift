@@ -70,9 +70,11 @@ public class PolygonView: UIView {
             return
         }
 
+        let layerTransform = self.layer.affineTransform()
+
         for polygon in self.polygonLayers {
             if let selectedPoint = polygon.sublayers?.first(where: { $0.hitTest(point) != nil }) as? ControlPointLayer {
-                point = CGPoint(x: point.x + self.frame.origin.x, y: point.y + self.frame.origin.y)
+                point = CGPoint(x: (point.x * layerTransform.a) + self.frame.origin.x, y: (point.y * layerTransform.d) + self.frame.origin.y)
                 self.selectedControlPointLayer = selectedPoint
                 self.selectedControlPointLayer?.selected = true
                 self.selectedPolygonLayer = polygon
@@ -125,7 +127,8 @@ public class PolygonView: UIView {
             })
         }
 
-        point = CGPoint(x: point.x + self.frame.origin.x, y: point.y + self.frame.origin.y)
+        let layerTransform = self.layer.affineTransform()
+        point = CGPoint(x: (point.x * layerTransform.a) + self.frame.origin.x, y: (point.y * layerTransform.d) + self.frame.origin.y)
         magnifierView.touchLocation = point
         self.magnifierView?.touchCenterView.center = point
 

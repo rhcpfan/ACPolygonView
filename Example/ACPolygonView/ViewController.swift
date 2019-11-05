@@ -55,14 +55,16 @@ class ViewController: UIViewController {
     func updateLayerBounds() {
         if imageView.contentMode == .scaleAspectFit, let displayedImage = imageView.image {
             let imageClippingRect = AVMakeRect(aspectRatio: displayedImage.size, insideRect: imageView.bounds)
-            self.polygonView.translatesAutoresizingMaskIntoConstraints = false
-            self.polygonView.frame = imageClippingRect
-            self.polygonView.updatePolygonLayersFrame(imageClippingRect)
-            self.polygonView.layer.frame = imageClippingRect
-            self.polygonView.layer.bounds = CGRect(origin: .zero, size: imageClippingRect.size)
+            let xScale = imageClippingRect.width / imageView.bounds.width
+            let yScale = imageClippingRect.height / imageView.bounds.height
+
+            let scaleTransform = CGAffineTransform(scaleX: xScale, y: yScale)
+            polygonView.layer.setAffineTransform(scaleTransform)
         }
     }
 
+    /// Adds a polygon inside `polygonView`
+    /// - Parameter points: The initial points of the polygon.
     func addPolygon(points: [CGPoint]) {
         let polyConfig = PolygonLayerConfiguration()
         polyConfig.fillColor = UIColor(red: 0.5, green: 1, blue: 0.0, alpha: 0.5)
