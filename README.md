@@ -1,13 +1,6 @@
 # ACPolygonView
 
-<div style="white-space:nowrap">
-    <div style="display:inline;">
-        <img src="https://user-images.githubusercontent.com/3796970/68125913-54000c80-ff1b-11e9-89ab-4564619fb701.png" width="200">
-    </div>
-    <div style="display:inline;">
-        <img src="https://user-images.githubusercontent.com/3796970/68125875-3cc11f00-ff1b-11e9-81f0-6339f0c194a2.png" width="200">
-    </div>
-</div>
+![](https://user-images.githubusercontent.com/3796970/68190046-5d3db780-ffb5-11e9-9dd2-ba54fc3abf24.png)
 
 ## Example
 
