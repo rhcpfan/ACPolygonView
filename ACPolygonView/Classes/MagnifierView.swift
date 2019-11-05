@@ -12,7 +12,7 @@ enum MagnifierViewShape {
     case round, square
 }
 
-class MagnifierView: UIView {
+public class MagnifierView: UIView {
 
     // MARK: - Instance Properties -
 
@@ -53,7 +53,7 @@ class MagnifierView: UIView {
         }
     }
 
-    override func draw(_ rect: CGRect) {
+    override public func draw(_ rect: CGRect) {
         super.draw(rect)
 
         if let location = self.touchLocation {
