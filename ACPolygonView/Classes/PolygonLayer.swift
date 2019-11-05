@@ -13,15 +13,15 @@ class PolygonLayer: CAShapeLayer {
     // MARK: - Instance Properties -
 
     /// Configuration object for drawing the polygon layer.
-    public var polygonConfiguration: PolygonLayerConfiguration
+    var polygonConfiguration: PolygonLayerConfiguration
     /// Configuration object for drawing the control point layers.
-    public var controlPointsConfiguration: ControlPointLayerConfiguration
+    var controlPointsConfiguration: ControlPointLayerConfiguration
     /// Polygon layer selection state.
-    public var selected: Bool = false {
+    var selected: Bool = false {
         didSet { self.updateState(isSelected: selected) }
     }
     /// Array of `CGPoint` objects representing the polygon points.
-    public var points: [CGPoint] {
+    var points: [CGPoint] {
         return self.sublayers?.map({ $0.position }) ?? []
     }
 
