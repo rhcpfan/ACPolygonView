@@ -45,6 +45,7 @@ public class PolygonView: UIView {
 
         let polygonLayer = PolygonLayer(initialPoints: initialPoints, polygonConfiguration: polygonConfiguration, pointsConfiguration: pointsConfiguration)
         polygonLayer.contentsScale = UIScreen.main.scale
+        polygonLayer.backgroundColor = UIColor.green.withAlphaComponent(0.5).cgColor
         polygonLayer.frame = self.layer.frame
         self.layer.addSublayer(polygonLayer)
         self.polygonLayers.append(polygonLayer)
@@ -181,18 +182,22 @@ public class PolygonView: UIView {
         let prevTouchLocationInLayer = getPositionFor(point: prevTouchLocation, inLayer: polygonLayer)
         let newTouchLocationInLayer = getPositionFor(point: newTouchLocation, inLayer: polygonLayer)
 
+        let layerOrigin = polygonLayer.frame.origin
+        let layerWidth = polygonLayer.frame.width * (1.0 / polygonLayer.transform.m11)
+        let layerHeight = polygonLayer.frame.height * (1.0 / polygonLayer.transform.m22)
+
         CATransaction.begin()
         CATransaction.setValue(true, forKey: kCATransactionDisableActions)
-        if newTouchLocationInLayer.x >= 0 &&
-            newTouchLocationInLayer.y >= 0 &&
-            newTouchLocationInLayer.x <= polygonLayer.frame.width &&
-            newTouchLocationInLayer.y <= polygonLayer.frame.height {
+        if newTouchLocation.x >= layerOrigin.x &&
+            newTouchLocation.y >= layerOrigin.y &&
+            newTouchLocationInLayer.x <= layerWidth &&
+            newTouchLocationInLayer.y <= layerHeight {
             pointLayer.position = newTouchLocationInLayer
             polygonLayer.updatePath()
+            self.delegate?.didMoveCorner(from: prevTouchLocationInLayer, to: newTouchLocationInLayer)
         }
         CATransaction.commit()
 
-        self.delegate?.didMoveCorner(from: prevTouchLocationInLayer, to: newTouchLocationInLayer)
 
         guard let magnifierView = self.magnifierView else {
             return
