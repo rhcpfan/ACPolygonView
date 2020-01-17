@@ -9,14 +9,24 @@
 import UIKit
 import AVFoundation
 
+public protocol PolygonViewDelegate: class {
+    func didSelectCorner(atLocation: CGPoint)
+    func didDeselectCorner(atLocation: CGPoint)
+    func didMoveCorner(from:CGPoint, to: CGPoint)
+}
+
 public class PolygonView: UIView {
 
     // MARK: - Instance Properties -
 
+    public var delegate: PolygonViewDelegate?
+    public var magnifierParrentView: UIView?
+    public var magnifierViewOrigin: CGPoint = .zero
+    public var magnifierViewSize = CGSize(width: 100, height: 100)
     /// A magnifier view used to display a more precise location of the polygon points.
     public var magnifiedView: UIView? { didSet { self.updateMagnifiedView() }}
     /// A magnifier view used to display a more precise location of the polygon points.
-    private var magnifierView: MagnifierView!
+    var magnifierView: MagnifierView!
     /// All polygon layers inside the view.
     var polygonLayers: [PolygonLayer] = []
     /// The currently selected polygon point.
@@ -66,7 +76,7 @@ public class PolygonView: UIView {
 
     /// Initializes the magnifier view (round shape, displayed at the top-left corner of the image view frame)
     private func initMagnifierView() {
-        magnifierView = MagnifierView(frame: CGRect(origin: .zero, size: CGSize(width: 100, height: 100)))
+        magnifierView = MagnifierView(frame: CGRect(origin: magnifierViewOrigin, size: magnifierViewSize))
         magnifierView.shape = .round
         magnifierView.isHidden = true
         magnifierView.translatesAutoresizingMaskIntoConstraints = false
@@ -76,13 +86,20 @@ public class PolygonView: UIView {
 
     /// Updates the magnifier's view that needs to be magnified.
     private func updateMagnifiedView() {
-        if let magnifiedView = self.magnifiedView {
-            if magnifierView == nil {
-                self.initMagnifierView()
+        guard let magnifiedView = self.magnifiedView else {
+            return
+        }
+
+        if magnifierView == nil {
+            self.initMagnifierView()
+            if let parrentView = magnifierParrentView {
+                parrentView.addSubview(magnifierView)
+            } else {
                 self.addSubview(magnifierView)
             }
-            magnifierView.magnifiedView = magnifiedView
         }
+        magnifierView.frame = CGRect(origin: magnifierViewOrigin, size: magnifierViewSize)
+        magnifierView.magnifiedView = magnifiedView
     }
 
     /// Maps the given point to match the layer position and scale.
@@ -97,23 +114,16 @@ public class PolygonView: UIView {
         return scaledPoint
     }
 
-    /// Returns the scale factors of the layer's affine transform.
-    /// - Parameter layer: The layer to get the scale factors from.
-    /// - Returns: A `(CGFloat, CGFloat)` tuple representing the `X` and `Y` scale factors.
-    private func getScaleFactorsFor(layer: PolygonLayer) -> (xScale: CGFloat, yScale: CGFloat) {
-        let layerTransform = layer.affineTransform()
-        return (xScale: layerTransform.a, yScale: layerTransform.d)
-    }
-
     // MARK: - Instance Methods [Touch Events] -
 
     override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let point = touches.first?.location(in: self),
-            let polygonLayer = self.polygonLayers.first else {
+        guard let firstTouch = touches.first else { return }
+        guard let polygonLayer = self.polygonLayers.first else {
             return
         }
 
-        let scaledPoint = getPositionFor(point: point, inLayer: polygonLayer)
+        let viewPoint = firstTouch.location(in: self)
+        let scaledPoint = getPositionFor(point: viewPoint, inLayer: polygonLayer)
 
         for polygon in self.polygonLayers {
             if let selectedPoint = polygon.sublayers?.first(where: { $0.hitTest(scaledPoint) != nil }) as? ControlPointLayer {
@@ -121,58 +131,91 @@ public class PolygonView: UIView {
                 self.selectedControlPointLayer?.selected = true
                 self.selectedPolygonLayer = polygon
                 self.selectedPolygonLayer?.selected = true
-                self.magnifierView?.isHidden = false
-                self.magnifierView?.touchCenterView.isHidden = false
-                self.magnifierView?.touchCenterView.center = point
-                self.magnifierView?.touchLocation = point
+
+                self.delegate?.didSelectCorner(atLocation: scaledPoint)
+                DispatchQueue.main.async {
+                    self.magnifierView?.isHidden = false
+                    self.magnifierView?.touchCenterView.isHidden = false
+                    self.magnifierView?.layoutIfNeeded()
+                }
+                self.magnifierView?.touchCenterView.center = viewPoint
+                self.magnifierView?.touchLocation = viewPoint
             }
         }
     }
 
     override public func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.magnifierView?.isHidden = true
-        self.magnifierView?.touchCenterView.isHidden = true
+        guard let firstTouch = touches.first else { return }
+        guard let polygonLayer = self.selectedPolygonLayer else {
+            return
+        }
+
+        let viewPoint = firstTouch.location(in: self)
+        let scaledPoint = getPositionFor(point: viewPoint, inLayer: polygonLayer)
+
+        DispatchQueue.main.async {
+            self.magnifierView?.isHidden = true
+            self.magnifierView?.touchCenterView.isHidden = true
+            self.magnifierView?.layoutIfNeeded()
+        }
+
         self.selectedControlPointLayer?.selected = false
-        self.selectedControlPointLayer = nil
         self.selectedPolygonLayer?.selected = false
+        self.selectedControlPointLayer = nil
         self.selectedPolygonLayer = nil
+
+        self.delegate?.didDeselectCorner(atLocation: scaledPoint)
     }
 
     override public func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let point = touches.first?.location(in: self),
-            let polygonLayer = self.selectedPolygonLayer,
+
+        guard let firstTouch = touches.first else { return }
+
+        guard let polygonLayer = self.selectedPolygonLayer,
             let pointLayer = self.selectedControlPointLayer else {
             return
         }
 
-        let scaledPoint = getPositionFor(point: point, inLayer: polygonLayer)
-        let scaleFactors = getScaleFactorsFor(layer: polygonLayer)
+        let prevTouchLocation = firstTouch.previousLocation(in: self)
+        let newTouchLocation = firstTouch.location(in: self)
+        let prevTouchLocationInLayer = getPositionFor(point: prevTouchLocation, inLayer: polygonLayer)
+        let newTouchLocationInLayer = getPositionFor(point: newTouchLocation, inLayer: polygonLayer)
 
         CATransaction.begin()
         CATransaction.setValue(true, forKey: kCATransactionDisableActions)
-        if scaledPoint.x >= 0 &&
-            scaledPoint.y >= 0 &&
-            scaledPoint.x <= polygonLayer.frame.width / scaleFactors.xScale &&
-            scaledPoint.y <= polygonLayer.frame.height / scaleFactors.yScale {
-            pointLayer.position = scaledPoint
+        if newTouchLocationInLayer.x >= 0 &&
+            newTouchLocationInLayer.y >= 0 &&
+            newTouchLocationInLayer.x <= polygonLayer.frame.width &&
+            newTouchLocationInLayer.y <= polygonLayer.frame.height {
+            pointLayer.position = newTouchLocationInLayer
             polygonLayer.updatePath()
         }
         CATransaction.commit()
+
+        self.delegate?.didMoveCorner(from: prevTouchLocationInLayer, to: newTouchLocationInLayer)
 
         guard let magnifierView = self.magnifierView else {
             return
         }
 
-        if magnifierView.frame.contains(point) {
-            let xCoord = magnifierView.frame.origin.x == 0 ? self.frame.size.width - 100 : 0
-            let newPosition = CGPoint(x: xCoord, y: 0)
+        let parrentView = magnifierParrentView ?? self
+        let parrentViewPoint = firstTouch.location(in: parrentView)
+        if magnifierView.frame.contains(parrentViewPoint) {
+            let currentMagnifierViewOrigin = magnifierView.frame.origin
+            let magnifierViewWidth = magnifierView.bounds.width
+            var xCoord = magnifierViewOrigin.x
+            if currentMagnifierViewOrigin.x == magnifierViewOrigin.x {
+                xCoord = parrentView.bounds.size.width - magnifierViewWidth - magnifierViewOrigin.x
+            }
+
+            let newPosition = CGPoint(x: xCoord, y: magnifierViewOrigin.y)
             UIView.animate(withDuration: 0.25, animations: {
                 magnifierView.frame = CGRect(origin: newPosition, size: magnifierView.frame.size)
                 magnifierView.layoutIfNeeded()
             })
         }
 
-        magnifierView.touchLocation = point
-        self.magnifierView?.touchCenterView.center = point
+        magnifierView.touchLocation = newTouchLocation
+        self.magnifierView?.touchCenterView.center = newTouchLocation
     }
 }
