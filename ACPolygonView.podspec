@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ACPolygonView'
-  s.version          = '0.2.0'
+  s.version          = '0.3.0'
   s.summary          = 'Draw and modify polygons inside a view.'
 
 # This description is used to generate tags and improve search results.
