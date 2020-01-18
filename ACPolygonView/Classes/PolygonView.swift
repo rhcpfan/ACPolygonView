@@ -42,10 +42,8 @@ public class PolygonView: UIView {
     ///   - polygonConfiguration: The drawing configuration for the polygon.
     ///   - pointsConfiguration: The drawing configuration for the control points (polygon corners).
     public func addPolygon(initialPoints: [CGPoint], polygonConfiguration: PolygonLayerConfiguration? = nil, pointsConfiguration: ControlPointLayerConfiguration? = nil) {
-
         let polygonLayer = PolygonLayer(initialPoints: initialPoints, polygonConfiguration: polygonConfiguration, pointsConfiguration: pointsConfiguration)
         polygonLayer.contentsScale = UIScreen.main.scale
-        polygonLayer.backgroundColor = UIColor.green.withAlphaComponent(0.5).cgColor
         polygonLayer.frame = self.layer.frame
         self.layer.addSublayer(polygonLayer)
         self.polygonLayers.append(polygonLayer)
@@ -61,17 +59,18 @@ public class PolygonView: UIView {
     /// - Parameter polygonLayer: The layer to be modified.
     public func updateFrameForPolygonLayers(toFitImageOfSize imageSize: CGSize) {
         self.polygonLayers.forEach { (polygonLayer) in
-            // Set the layer frame size as the original image size
-            polygonLayer.frame = CGRect(origin: .zero, size: imageSize)
             // Get the CGRect that represents the scaled image frame (image clipping rectangle)
             let imageClippingRect = AVMakeRect(aspectRatio: imageSize, insideRect: self.bounds)
             // Scale from original image size to the image clipping rectangle
             let scaleX = imageClippingRect.width / imageSize.width
             let scaleY = imageClippingRect.height / imageSize.height
+            let layerOrigin = CGPoint(x: imageClippingRect.minX, y: imageClippingRect.minY)
+            let layerSize = CGSize(width: imageSize.width * scaleX, height: imageSize.height * scaleY)
+            let layerFrame = CGRect(origin: layerOrigin, size: layerSize)
             let scaleTransform = CATransform3DMakeScale(scaleX, scaleY, 1)
             polygonLayer.transform = scaleTransform
             // Move the layer position to the image clipping rectangle origin
-            polygonLayer.frame.origin = CGPoint(x: imageClippingRect.minX, y: imageClippingRect.minY)
+            polygonLayer.frame = layerFrame
         }
     }
 
